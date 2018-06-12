@@ -4,7 +4,7 @@ if type goenv &> /dev/null; then
   export PATH="${GOENV_SHIMS}:${PATH}"
   source $(which goenv)/../../completions/goenv.zsh
   function goenv() {
-    unset goenv
+    unset -f goenv > /dev/null 2>&1
     eval "$(command goenv init -)"
     goenv "$@"
   }
